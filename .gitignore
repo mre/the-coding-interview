@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+/out
+/core
+node_modules
+*.o
