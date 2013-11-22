@@ -1,6 +1,7 @@
-import math
-
 def byte_format(n, roundto=2):
+    """
+    Runtime: O(1)
+    """
     units = ["B", "KB", "MB", "GB", "TB", "PB"] # ...
     id = 0
     factor = 1024 # or 1000
