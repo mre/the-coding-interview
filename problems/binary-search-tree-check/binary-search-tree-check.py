@@ -1,23 +1,15 @@
+class Tree(object):
+    def __init__(self, val, left = None, right = None):
+        self.val, self.left, self.right = val, left, right
+
 def is_search_tree(tree, minval = float('-inf'), maxval = float('inf')):
     if not tree:
         # Empty
         return True
-    if tree.left:
-        l = tree.left.value
-        if l and not (minval < l < tree.value):
-            return False
-    if tree.right:
-        r = tree.right.value
-        if r and not (tree.value < r < maxval):
-            return False
-    return  is_search_tree(tree.left, minval, tree.value) and \
-            is_search_tree(tree.right, tree.value, maxval)
-
-class Tree(object):
-    def __init__(self, value, left = None, right = None):
-        self.value = value
-        self.left = left
-        self.right = right
+    if not (minval < tree.val < maxval):
+        return False
+    return  is_search_tree(tree.left, minval, tree.val) and \
+            is_search_tree(tree.right, tree.val, maxval)
 
 t1 =    Tree(15, 
             Tree(12, 
