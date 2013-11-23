@@ -1,15 +1,18 @@
 def find_missing(original, shuffled):
   """
-  Runtime: O(n * log n)
+  Runtime: O(n * log n), Space: O(1)
   """
-  original = sorted(original)
-  shuffled = sorted(shuffled)
+  original.sort()
+  shuffled.sort()
   for i, x in enumerate(shuffled):
     if original[i] != x:
       return x
   return original[-1]
 
 def find_missing2(original, shuffled):
+  """
+  Runtime: O(n), Space: O(1)
+  """
   missing = 0
   for i in original + shuffled:
     missing ^= i
