@@ -1,14 +1,16 @@
 def merge(left, right):
   result = []
-  while left and right:
-    print left, right
-    if left[0] < right[0]:
-      result.append(left.pop())
+  i = j = 0
+  while i < len(left) and j < len(right):
+    if left[i] < right[j]:
+      result.append(left[i])
+      i += 1
     else:
-      result.append(right.pop())
-  # Add remaining elements
-  result.extend(left)
-  result.extend(right)
+      result.append(right[j])
+      j += 1
+  # Append remaining elements
+  result.extend(left[i:])
+  result.extend(right[j:])
   return result
 
 def mergesort(l):
