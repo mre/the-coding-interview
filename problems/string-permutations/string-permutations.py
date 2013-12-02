@@ -1,6 +1,9 @@
 import itertools
 
 def permutations(word):
+  if len(word) < 2:
+    return word
+
   all_perms = []
   for i, start in enumerate(word):
     rest = word[:i] + word[i+1:]
