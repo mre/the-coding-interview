@@ -9,4 +9,4 @@ Resources to add:
   * [Simeon Willbanks Repo](https://github.com/simeonwillbanks/google-interview-questions/tree/master/questions)
   * [jonnii/interview-questions](https://github.com/jonnii/interview-questions)
   * [ofirpicazo/interview-questions](https://github.com/ofirpicazo/interview-questions/tree/master/python)
-  * Google Code Jam Problems
+  * [Google Code Jam Problems](https://code.google.com/codejam/)
