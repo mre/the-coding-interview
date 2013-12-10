@@ -3,9 +3,11 @@
 Over the next few weeks I will try to solve some of the coding problems in this
 repository.
 
-Currently, this is a fork of [blakeembrey/code-problems](https://github.com/blakeembrey/code-problems) but I will add more problems as I go along.
+
+Currently, this is a fork of [blakeembrey/code-problems](https://github.com/blakeembrey/code-problems) and [Simeon Willbanks Repo](https://github.com/simeonwillbanks/google-interview-questions/tree/master/questions) but I will add more problems as I go along.
+
+
 Resources to add:
   * [Arden Dertat's posts](http://www.ardendertat.com/2012/01/09/programming-interview-questions/)
-  * [Simeon Willbanks Repo](https://github.com/simeonwillbanks/google-interview-questions/tree/master/questions)
   * [jonnii/interview-questions](https://github.com/jonnii/interview-questions)
   * [ofirpicazo/interview-questions](https://github.com/ofirpicazo/interview-questions/tree/master/python)
