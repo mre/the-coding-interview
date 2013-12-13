@@ -4,3 +4,4 @@
 /core
 node_modules
 *.o
+*.class
