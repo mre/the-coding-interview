@@ -16,10 +16,10 @@ def pairs_sort(k, arr):
     Runtime: O(n^2)
     By sorting, we can avoid some unnecessary comparisons.
     """
-    arr.sort()
     if len(arr) < 2:
         return []
     pairs = []
+    arr.sort()
     for i, n1 in enumerate(arr):
         for n2 in arr[i+1:]:
             if n1 + n2 > k:
