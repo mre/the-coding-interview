@@ -7,7 +7,7 @@ def is_valid(sequence):
     A string is not valid if the knight moves onto a blank square 
     and the string cannot contain more than two vowels.
     """
-    if any(letter == " " for letter in sequence):
+    if any(letter == "_" for letter in sequence):
         return False
     # Check for vowels
     # Strings shorter than 3 letters are always ok, as they
@@ -29,12 +29,11 @@ def is_valid(sequence):
     return True
 
 def sequences(board, pos, seq = []):
-    print pos
     x, y = pos
-    #if 0 <= x <= len(board) - 1:
-    if x in range(len(board)-1) and y in range(len(board[0])-1):
-        letter = board[x][y]
-    else:
+    # Check for out of range errors
+    if x < 0 or x >= len(board):
+        return
+    if y < 0 or y >= len(board[0]):
         return
     letter = board[x][y]
     seq.append(letter)
@@ -42,11 +41,11 @@ def sequences(board, pos, seq = []):
         return
     yield seq
     # Continue with all other possible moves
-    moves = [(-1,-2),(1,-2), (-1,2), (1,2),(-2,1),(-2,-1),(2,1),(2,-1)]
+    moves = [(-1,-2),(1,-2),(-1,2), (1,2),(-2,-1),(2,-1),(-2,1),(2,1)]
     for move in moves:
+        curr_seq = seq[:]
         dx, dy = move
-        for s in sequences(board, (x+dy, y+dy), seq):
-            print s
+        for s in sequences(board, (x+dx, y+dy), curr_seq):
             yield s
 
 def knight(board):
@@ -55,12 +54,11 @@ def knight(board):
     for x in range(len(board)-1):
         for y in range(len(board[0])-1):
             # Generate all move sequences from that position
-            startpos = (x,y)
-            for sequence in sequences(board, startpos):
+            print "Starting position: ", x, y
+            for sequence in sequences(board, (x,y), []):
                 result.append("".join(sequence))
     return result
 
-# Create the board
+# Move knight on board
 board = "ABC_E _GHIJ KLMNO PQRST UV__Y".split()
-
 print knight(board)
