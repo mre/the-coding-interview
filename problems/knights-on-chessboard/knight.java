@@ -1,18 +1,19 @@
+import java.util.ArrayList;
+import java.util.Vector;
 import java.util.HashSet;
-import java.util.Set;
 
 
-public class knight {
+public class KnightProblem {
 
-	private static boolean duplicate_characters(char[] sequence) {
+	private static boolean duplicate_characters(ArrayList<Character> sequence) {
 	    HashSet<Character> unique = new HashSet<Character>();
 	    for (char c : sequence) {
 	    	unique.add(c);
 	    }
-	    return unique.size() == sequence.length;
+	    return unique.size() == sequence.size();
 	}
 
-	private static boolean is_valid(char[] sequence) {
+	private static boolean is_valid(ArrayList<Character> sequence) {
 	    /*
 	    A string is not valid if the knight moves onto a blank square 
 	    and the string cannot contain more than two vowels.
@@ -42,50 +43,57 @@ public class knight {
 	     return !duplicate_characters(sequence);
 	}
 	    		
-	private static char[] sequences(char [][] board, int x, int y, char[] seq) {
+	private static Vector<ArrayList<Character>> sequences(char [][] board, int x, int y, ArrayList<Character> seq) {
 	    // Check for out of range errors
+		char letter;
+		Vector<ArrayList<Character>> dummy = new Vector<ArrayList<Character>>();
 	    try {
-	    	char letter = board[x][y];
+	    	letter = board[x][y];
 	    } catch (Exception e) {
-	    	char[] s = new char[]{''};
-	    	return [''];
+	    	return dummy;
 	    }
-	    seq.append(letter)
-	    if not is_valid(seq):
-	        return
-	    yield seq
-	    # Continue with all other possible moves
-	    moves = [(-1,-2),(1,-2),(-1,2), (1,2),(-2,-1),(2,-1),(-2,1),(2,1)]
-	    for move in moves:
-	        curr_seq = seq[:]
-	        dx, dy = move
-	        for s in sequences(board, (x+dx, y+dy), curr_seq):
-	            yield s
-	            /*
-	def knight(board):
-	    result = []
-	    # We can start at any position on the board
-	    for x in range(len(board)-1):
-	        for y in range(len(board[0])-1):
-	            # Generate all move sequences from that position
-	            print "Starting position: ", x, y
-	            for sequence in sequences(board, x, y, []):
-	                result.append("".join(sequence))
-	    return result
+	    seq.add(letter);
+	    if (!is_valid(seq)) {
+	    	return dummy;
+	    }
+	    Vector<ArrayList<Character>> result = new Vector<ArrayList<Character>>();
+	    result.add(seq);
+	    
+	    
+	    // Continue with all other possible moves
+	    //moves = [(-1,-2),(1,-2),(-1,2), (1,2),(-2,-1),(2,-1),(-2,1),(2,1)]
+	    //for move in moves:
+	    
+	    for (ArrayList<Character> s : sequences(board, x-1, y-2, seq)) {
+	    	result.add(s);
+	    }
+	    
+	    return result;
+	}
+	       
+	public static void knight(char[][] board) {
+	    // We can start at any position on the board
+		for (int x = 0; x < board.length; ++x) {
+	        for (int y = 0; y < board[0].length; ++y) {
+	            // Generate all move sequences from that position
+	            System.out.println("Starting position: " + x + " " + y);
+	            ArrayList<Character> seq = new ArrayList<Character>();
+	            for (ArrayList<Character >sequence : sequences(board, x, y, seq)) {
+	                System.out.println(sequence);
+	            }
+	        }
+		}
+	}
 
-	# Move knight on board
-	board = "ABC_E _GHIJ KLMNO PQRST UV__Y".split()
-	print knight(board)
-
-	
-	*/
-	
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		// Move knight on board
+		char[][] board = {	{'A','B','C','_', 'E'},
+							{'_','G','H','I', 'J'},
+							{'K','L','M','N','O'},
+							{'P','Q','R','S','T'},
+							{'U','V','_','_','Y'}};
+		knight(board);
 	}
 
 }
+
