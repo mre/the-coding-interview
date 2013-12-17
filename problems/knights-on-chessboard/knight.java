@@ -10,7 +10,7 @@ public class KnightProblem {
 	    for (char c : sequence) {
 	    	unique.add(c);
 	    }
-	    return unique.size() == sequence.size();
+	    return unique.size() != sequence.size();
 	}
 
 	private static boolean is_valid(ArrayList<Character> sequence) {
@@ -18,7 +18,7 @@ public class KnightProblem {
 	    A string is not valid if the knight moves onto a blank square 
 	    and the string cannot contain more than two vowels.
 	    */
-			
+		System.out.println(sequence);
 		int num_vowels = 0;
 		for (char c : sequence) {
 			// Check for spaces
@@ -26,6 +26,7 @@ public class KnightProblem {
 				return false;
 			}
 			if (c == 'A' || c == 'E' || c == 'I' || c == 'U' || c == 'O') {
+				System.out.println(c);
 				num_vowels++;
 				if (num_vowels > 2) {
 					return false;
@@ -45,6 +46,7 @@ public class KnightProblem {
 	    		
 	private static Vector<ArrayList<Character>> sequences(char [][] board, int x, int y, ArrayList<Character> seq) {
 	    // Check for out of range errors
+		
 		char letter;
 		Vector<ArrayList<Character>> dummy = new Vector<ArrayList<Character>>();
 	    try {
@@ -58,16 +60,15 @@ public class KnightProblem {
 	    }
 	    Vector<ArrayList<Character>> result = new Vector<ArrayList<Character>>();
 	    result.add(seq);
-	    
-	    
 	    // Continue with all other possible moves
-	    //moves = [(-1,-2),(1,-2),(-1,2), (1,2),(-2,-1),(2,-1),(-2,1),(2,1)]
-	    //for move in moves:
-	    
-	    for (ArrayList<Character> s : sequences(board, x-1, y-2, seq)) {
-	    	result.add(s);
-	    }
-	    
+	    result.addAll(sequences(board, x-1, y-2, seq));
+	    result.addAll(sequences(board, x+1, y-2, seq));
+	    result.addAll(sequences(board, x-1, y+2, seq));
+	    result.addAll(sequences(board, x+1, y+2, seq));
+	    result.addAll(sequences(board, x-2, y-1, seq));
+	    result.addAll(sequences(board, x+2, y-1, seq));
+	    result.addAll(sequences(board, x-2, y+1, seq));
+	    result.addAll(sequences(board, x+2, y+1, seq));
 	    return result;
 	}
 	       
@@ -96,4 +97,3 @@ public class KnightProblem {
 	}
 
 }
-
