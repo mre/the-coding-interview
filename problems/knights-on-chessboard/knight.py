@@ -15,7 +15,7 @@ def is_valid(sequence):
     if len(sequence) < 3:
         return True
     # Check longer sequences for number of vowels
-    vowels="AEIO"
+    vowels="AEIUO"
     num_vowels = len([v for v in sequence if v in vowels])
     if num_vowels > 2:
         return False
