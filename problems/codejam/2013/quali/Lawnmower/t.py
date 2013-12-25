@@ -1,9 +1,4 @@
-lawn = [[2,2,2,2,2],
-       [3,1,1,1,3],
-       [3,1,1,1,3],
-       [2,2,2,2,2]]
+pattern = [i for i in "111211111"]
+line = [i for i in "111121111"]
+print pattern == line
 
-lawn = []
-sides = lawn[1:-1]
-for row in sides:
-  print row[0], row[-1]
