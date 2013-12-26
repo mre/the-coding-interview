@@ -17,12 +17,20 @@ def below_max_height(lawn, max_height = 100):
   return "YES"
 
 def solve(lawn):
-  pattern = lawn[0]
-  for line in lawn[1:]:
+  # Take highest setting as pattern
+  heights = [max(line) for line in lawn]
+  max_line = heights.index(max(heights))
+  pattern = lawn[max_line]
+
+  # Check all other lines against this pattern
+  other_lines = lawn[:max_line] + lawn[max_line+1:]
+  for line in other_lines:
     if line != pattern:
       setting = max(line)
       trimmed = [min(setting, f) for f in line]
-      if line != trimmed:
+      # All fields which are lower than the setting
+      # must have the same height as the pattern
+      if any(t < setting and t != p for t in trimmed for p in pattern):
           return "NO"
   return below_max_height(lawn)
 
