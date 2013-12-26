@@ -1,14 +1,14 @@
-import sys, time
+"""
+31:
 
-def get_data():
-    numcases = int(sys.stdin.readline())
-    for case in range(1,numcases+1):
-        N, M = [int(v) for v in sys.stdin.readline().strip().split()]
-        data = []
-        for line_number in range(N):
-            line = sys.stdin.readline().strip().split()
-            data.append(line)
-        yield (case, data)
+
+1222222
+2222222
+2222222
+2222222
+2222222
+"""
+
 
 def below_max_height(lawn, max_height = 100):
   for line in lawn:
@@ -24,22 +24,17 @@ def solve(lawn):
 
   # Check all other lines against this pattern
   other_lines = lawn[:max_line] + lawn[max_line+1:]
+  print pattern
   for line in other_lines:
+    print line
     if line != pattern:
       setting = max(line)
       trimmed = [min(setting, p) for p in pattern]
+      print trimmed
       if line != trimmed:
         return "NO"
   return below_max_height(lawn)
 
-def main():
-    for case, data in get_data():
-      print "Case #" + repr(case) + ":", solve(data)
-      """
-      for line in data:
-        print "".join(line)
-      print
-      """
+board = ["1111", "2221", "2222"]
 
-if __name__ == "__main__":
-  main()
+print solve(board)
