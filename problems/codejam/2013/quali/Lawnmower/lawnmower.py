@@ -7,14 +7,14 @@ def get_data():
         data = []
         for line_number in range(N):
             line = sys.stdin.readline().strip().split()
-            data.append(line)
+            data.append([int(i) for i in line])
         yield (case, data)
 
 def below_max_height(lawn, max_height = 100):
   for line in lawn:
-    if any(1 <= field <= max_height for field in line):
-      return "NO"
-  return "YES"
+    if all(1 <= field <= max_height for field in line):
+      return "YES"
+  return "NO"
 
 def solve(lawn):
   # Take highest setting as pattern
@@ -37,7 +37,7 @@ def main():
       print "Case #" + repr(case) + ":", solve(data)
       """
       for line in data:
-        print "".join(line)
+        print " ".join([str(i) for i in line])
       print
       """
 
