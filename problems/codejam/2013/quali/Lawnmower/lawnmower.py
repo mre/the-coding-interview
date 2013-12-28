@@ -12,9 +12,9 @@ def get_data():
 
 def below_max_height(lawn, max_height = 100):
   for line in lawn:
-    if all(1 <= field <= max_height for field in line):
-      return "YES"
-  return "NO"
+    if any(field < 1 or field > max_height for field in line):
+      return "NO"
+  return "YES"
 
 def solve(lawn):
   # Take highest setting as pattern
