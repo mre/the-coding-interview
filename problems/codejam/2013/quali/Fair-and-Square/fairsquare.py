@@ -6,6 +6,22 @@ def get_data():
       start, stop = [int(v) for v in sys.stdin.readline().strip().split()]
       yield (case, start, stop)
 
+def fair(i):
+  string = str(i)
+  return string == string[::-1]
+
+def check(i):
+  return (i%2 != 0 and fair(i))
+
+def check_range(start, stop):
+  for i in range(start, stop):
+    if i%9999999 == 0:
+      print(i)
+    """
+    #if check(i):
+    #  print(i)
+    """
+
 def main():
   starts = []
   stops = []
@@ -18,7 +34,8 @@ def main():
   # Find the highest stop
   max_stop = max(stops)
 
-  print min_start, max_stop
+  #check_range(min_start, max_stop)
+  check_range(0,10**100)
 
   """
     print "Case #" + repr(case) + ":", start, stop #solve(data)
