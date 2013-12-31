@@ -19,29 +19,19 @@ def get_data():
         chests[unlock_key].append(chest)
       yield (case, keys, chests)
 
+def solve(keys, locked_chests, path = []):
+    return "Keys:", keys
+    """
+    for unlock_key, chests in locked_chests.items():
+        print unlock_key, ":", ",".join(str(chest.id) for chest in chests)
+    if closed_chests and not keys:
+        # Game over
+        return "IMPOSSIBLE"
+    """
+
 def main():
-  for case, keys, chests in get_data():
-    print "Case", case
-    print keys
-    for k,v in chests.items():
-        print k, ": ", ",".join(str(chest.id) for chest in v)
-    print
-    #print("Case #{}: {}".format(case, solve(start, stop)))
+  for case, keys, locked_chests in get_data():
+    print("Case #{}: {}".format(case, solve(keys, locked_chests)))
 
 if __name__ == "__main__":
   main()
-
-
-"""
-def solve():
-
-closed_chests = []
-keys = []
-
-
-
-
-if closed_chests and not keys:
-    # Game over
-    return "IMPOSSIBLE"
-"""
