@@ -9,7 +9,7 @@ def get_data():
   numcases = int(sys.stdin.readline())
   for case in range(1,numcases+1):
       num_keys, num_chests = map(int, sys.stdin.readline().split())
-      keys = map(int, sys.stdin.readline().split())
+      keyring = map(int, sys.stdin.readline().split())
       # Store chests in dictionary
       chests = defaultdict(list)
       for id in range(1,num_chests+1):
@@ -17,10 +17,20 @@ def get_data():
         unlock_key, content = chest_data[0], chest_data[2:]
         chest = Chest(id, content)
         chests[unlock_key].append(chest)
-      yield (case, keys, chests)
+      yield (case, keyring, chests)
 
-def solve(keys, locked_chests, path = []):
-    return "Keys:", keys
+def get_all_paths(keyring, locked_chests, path = []):
+    # If empty keyring and locked chests
+        # return Impossible
+    # Take next key from keyring
+    # Unlock next chest with key...
+    # ...add chest to path...
+    # ...and add containing keys to keyring
+    # Have all chests been unlocked?
+    # if...
+        # Success! yield path
+    # else...
+        # yield from get_all_paths(keyring, locked_chests, path)
     """
     for unlock_key, chests in locked_chests.items():
         print unlock_key, ":", ",".join(str(chest.id) for chest in chests)
@@ -28,6 +38,14 @@ def solve(keys, locked_chests, path = []):
         # Game over
         return "IMPOSSIBLE"
     """
+    pass
+
+def best path(paths):
+    pass
+
+def solve(keyring, locked_chests):
+    = get_all_paths(keyring, locked_chests)
+    return best_path(paths)
 
 def main():
   for case, keys, locked_chests in get_data():
