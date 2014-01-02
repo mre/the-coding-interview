@@ -19,32 +19,42 @@ def get_data():
         chests[unlock_key].append(chest)
       yield (case, keyring, chests)
 
+def count(d):
+    """ Count number of values in dict """
+    return sum(len(v) for v in d.itervalues())
+
+def unlock(chests, key, index = -1):
+    """ Get chest with matching key type from all chests """
+    chest = None
+    matching_chests = chests.get(key)
+    if matching_chests:
+        chest = matching_chests.pop(index)
+    return chest
+
 def get_all_paths(keyring, locked_chests, path = []):
     # If empty keyring and locked chests
-        # return Impossible
-    # Take next key from keyring
-    # Unlock next chest with key...
-    # ...add chest to path...
-    # ...and add containing keys to keyring
-    # Have all chests been unlocked?
-    # if...
-        # Success! yield path
-    # else...
-        # yield from get_all_paths(keyring, locked_chests, path)
-    """
-    for unlock_key, chests in locked_chests.items():
-        print unlock_key, ":", ",".join(str(chest.id) for chest in chests)
-    if closed_chests and not keys:
-        # Game over
+    if not keyring and count(locked_chests):
         return "IMPOSSIBLE"
-    """
-    pass
+    # Take next key type from keyring
+    for key in set(keyring):
+        for chest in locked_chests[key]:
+            # Add chest to path
+            path.append[chest]
+            # Add containing keys to keyring
+            keyring.append(chest.content)
 
-def best path(paths):
+    # Have all chests been unlocked?
+    if not count(locked_chests):
+        # Success!
+        yield path
+    else:
+        yield from get_all_paths(keyring, locked_chests, path)
+
+def best_path(paths):
     pass
 
 def solve(keyring, locked_chests):
-    = get_all_paths(keyring, locked_chests)
+    paths = get_all_paths(keyring, locked_chests)
     return best_path(paths)
 
 def main():
