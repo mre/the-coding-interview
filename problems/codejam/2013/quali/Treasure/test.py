@@ -8,27 +8,41 @@ def unlock(chests, key, index = -1):
     chest = matching_chests.pop(index)
   return chest
 
-locked_chests = defaultdict(list)
 
-def count(locked_chests):
-  return sum(len(v) for v in locked_chests.itervalues())
+class Chest(object):
+    def __init__(self, id, content):
+        self.id, self.content = id, content
 
-locked_chests[1] = [1,2,3,4]
-locked_chests[2] = [1,2,3,4]
-if count(locked_chests):
-  print "Work to do"
-else:
-  print "Done"
-
-"""
-for index in chests.get(1):
-  chest = unlock(chests, 1)
-  print chest
-  print chests
-"""
+def count(d):
+    """ Count number of values in dict """
+    print(",".join(str(c.id) for v in d.values() for c in v))
+    return sum(len(v) for v in d.values())
 
 
-keyring = [1,1,2,3,4]
-for key in set(keyring):
-  print key
-print keyring
+c1 = Chest(1,[1,2])
+c2 = Chest(2,[3,4])
+c3 = Chest(3,[4,5])
+
+chests = defaultdict(list)
+chests[1].append(c1)
+chests[2].append(c2)
+chests[2].append(c3)
+
+print count(chests)
+
+
+# TODO: Test extend!
+
+
+keyring = [1,2,3]
+content = [4]
+new_keyring = keyring + content
+
+
+def best_path(paths):
+  rank = sorted(paths)
+  return rank[0]
+
+
+paths = []
+print best_path(paths)
