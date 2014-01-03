@@ -1,6 +1,7 @@
 from collections import defaultdict
+import copy
 
-
+"""
 def unlock(chests, key, index = -1):
   chest = None
   matching_chests = chests.get(key)
@@ -14,7 +15,6 @@ class Chest(object):
         self.id, self.content = id, content
 
 def count(d):
-    """ Count number of values in dict """
     print(",".join(str(c.id) for v in d.values() for c in v))
     return sum(len(v) for v in d.values())
 
@@ -44,5 +44,23 @@ def best_path(paths):
   return rank[0]
 
 
-paths = []
+paths = [[2,1,3],[1,2,3],[3,1,2]]
 print best_path(paths)
+"""
+
+def delfrom(key, dataset, item):
+  d2 = copy.deepcopy(dataset)
+  d2[key].remove(item)
+  print "delfrom", d2
+  return d2
+
+
+def gentest(keys, dataset):
+  for key in keys:
+    for i in dataset[key]:
+      remaining = delfrom(key, dataset, i)
+      yield (i,remaining)
+
+dataset = {1: [5, 23],2: [4,11]}
+for i,j in gentest([1, 2], dataset):
+  print i,j
