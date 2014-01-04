@@ -33,44 +33,31 @@ def remove_chest(chests, id):
 def unlock(key, chest, chests):
     """ Remove chest with matching key type from all chests """
     new_chests = copy.deepcopy(chests)
-    print("Search for ", chest.id, "in", key)
-    for k, v in new_chests.items():
-        print(k, ",".join(str(c.id) for c in v))
     remove_chest(new_chests[key], chest.id)
-    print("---")
-    for k, v in new_chests.items():
-        print(k, ",".join(str(c.id) for c in v))
     return new_chests
 
 def get_all_paths(keyring, locked_chests, path = []):
     # Try each key from keyring.
     for key in set(keyring):
-        print("Selecting key", key)
         for chest in locked_chests[key]:
-            print(locked_chests[key])
-            print("Selecting chest", chest.id)
             # Add chest to path
             new_path = path + [chest.id]
             # "Unlock" chest i.e. remove chest from dict.
             remaining_chests = unlock(key, chest, locked_chests)
             # Have all chests been unlocked yet?
             if not count(remaining_chests):
-                yield path # We are done
-                print("after yield")
+                yield new_path # We are done
             else:
                 # Get keys from chest
                 new_keyring = keyring + chest.content
-                print("Got new keys!", chest.content)
                 # Remove used key from keyring
                 new_keyring.remove(key)
-                print("Keyring", new_keyring)
                 yield from get_all_paths(new_keyring, remaining_chests, new_path)
 
 def best_path(paths):
     if not paths:
         return "IMPOSSIBLE"
     rank = sorted(paths)
-    print(rank)
     return " ".join(str(chest) for chest in rank[0])
 
 def solve(keyring, locked_chests):
