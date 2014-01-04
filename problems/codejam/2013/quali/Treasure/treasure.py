@@ -70,6 +70,7 @@ def best_path(paths):
     if not paths:
         return "IMPOSSIBLE"
     rank = sorted(paths)
+    print(rank)
     return " ".join(str(chest) for chest in rank[0])
 
 def solve(keyring, locked_chests):
