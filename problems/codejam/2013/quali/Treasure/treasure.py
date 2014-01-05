@@ -42,6 +42,7 @@ def get_all_paths(keyring, locked_chests, path = []):
         for chest in locked_chests[key]:
             # Add chest to path
             new_path = path + [chest.id]
+            print(new_path)
             # "Unlock" chest i.e. remove chest from dict.
             remaining_chests = unlock(key, chest, locked_chests)
             # Have all chests been unlocked yet?
