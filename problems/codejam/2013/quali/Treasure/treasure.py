@@ -1,5 +1,5 @@
 import sys
-from collections import defaultdict
+from collections import defaultdict, Counter
 import copy
 
 class Chest(object):
@@ -36,34 +36,47 @@ def unlock(key, chest, chests):
     remove_chest(new_chests[key], chest.id)
     return new_chests
 
-def get_all_paths(keyring, locked_chests, path = []):
+def get_path(keyring, locked_chests, path = []):
     # Try each key from keyring.
     for key in set(keyring):
         for chest in locked_chests[key]:
             # Add chest to path
             new_path = path + [chest.id]
-            print(new_path)
+            #print(new_path)
             # "Unlock" chest i.e. remove chest from dict.
             remaining_chests = unlock(key, chest, locked_chests)
             # Have all chests been unlocked yet?
             if not count(remaining_chests):
-                yield new_path # We are done
+                return new_path # We are done
             else:
                 # Get keys from chest
                 new_keyring = keyring + chest.content
                 # Remove used key from keyring
                 new_keyring.remove(key)
-                yield from get_all_paths(new_keyring, remaining_chests, new_path)
+                finished_path = get_path(new_keyring, remaining_chests, new_path)
+                if finished_path:
+                    return finished_path
 
-def best_path(paths):
-    if not paths:
-        return "IMPOSSIBLE"
-    rank = sorted(paths)
-    return " ".join(str(chest) for chest in rank[0])
+def enough_keys(keyring, all_chests):
+    required = []
+    available = []
+    available.extend(keyring)
+    for key_type, matching_chests in all_chests.items():
+        required.extend([key_type for chest in matching_chests])
+        for chest in matching_chests:
+            available.extend(chest.content)
+    count_req = Counter(required)
+    count_avail = Counter(available)
+    return all(avail >= req for req in count_req for avail in count_avail)
+
 
 def solve(keyring, locked_chests):
-    paths = [p for p in get_all_paths(keyring, locked_chests) if p]
-    return best_path(paths)
+    if enough_keys(keyring, locked_chests):
+        path = get_path(keyring, locked_chests)
+        if path:
+            return " ".join(str(chest) for chest in path)
+    return "IMPOSSIBLE"
+
 
 def main():
   for case, keys, locked_chests in get_data():
