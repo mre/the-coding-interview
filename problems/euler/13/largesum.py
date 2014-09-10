@@ -99,8 +99,22 @@ numbers = [37107287533902102798797998220837590246510135740250,
 20849603980134001723930671666823555245252804609722,
 53503534226472524250874054075591789781264330331690]
 
+numbers_length = len(str(numbers[0]))
 
 reverted = [str(n)[::-1] for n in numbers]
 
-for pos in len(reverted[0]):
-    print reverted[0][pos]
+result = []
+remainder = 0
+for pos in range(numbers_length):
+    digit_sum = sum(int(d[pos]) for d in reverted) + remainder
+    print digit_sum
+    digit = digit_sum % 10
+    print digit
+    result.append(str(digit))
+    remainder = digit_sum / 10
+    print remainder
+
+result.append(str(remainder))
+
+result = "".join(r for r in result)[::-1]
+print result[0:10]
