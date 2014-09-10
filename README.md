@@ -12,6 +12,6 @@ Currently, this is a collection of the following resources:
   * [jonnii/interview-questions](https://github.com/jonnii/interview-questions)
   * [ofirpicazo/interview-questions](https://github.com/ofirpicazo/interview-questions/tree/master/python)
   * [Google Code Jam Problems](https://code.google.com/codejam/)
+  * [Project Euler](https://projecteuler.net/)
 
 More to come.
-
