@@ -1,7 +1,8 @@
 # The Coding Interview
 
-Over the next few weeks I will try to solve some of the coding problems in this
-repository in Python, C, Java and maybe others.
+My solutions to some coding problems. Good times.
+
+![XKCD 1185](https://raw2.github.com/mre/the-coding-interview/master/xkcd1185.jpg)
 
 
 Currently, this is a collection of the following resources:
@@ -13,5 +14,3 @@ Currently, this is a collection of the following resources:
   * [ofirpicazo/interview-questions](https://github.com/ofirpicazo/interview-questions/tree/master/python)
   * [Google Code Jam Problems](https://code.google.com/codejam/)
   * [Project Euler](https://projecteuler.net/)
-
-More to come.
