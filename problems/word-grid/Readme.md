@@ -4,9 +4,9 @@ right, up and down.
 
 Example:
 
-_ s o
-_ h l
-_ e l
+    _ s o
+    _ h l
+    _ e l
 
 Possible results: ["so", "she", "he", "hell", "hello"]
                   ["so", "she", "solo", "he", "hell", "hello"]
