@@ -2,7 +2,7 @@
 
 My solutions to some coding problems. Good times.
 
-![XKCD 1185](https://raw2.github.com/mre/the-coding-interview/master/xkcd1185.jpg)
+![XKCD 1185](https://raw.githubusercontent.com/mre/the-coding-interview/master/xkcd1185.jpg)
 
 
 Currently, this is a collection of the following resources:
