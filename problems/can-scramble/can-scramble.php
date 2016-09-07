@@ -39,15 +39,7 @@ function canScramble($source, $dest)
     }
   }
 
-  foreach ($chars_dest as $char => $count)
-  {
-    if (!array_key_exists($char, $chars_source) || $chars_source[$char] != $count)
-    {
-      return false;
-    }
-  }
-
-  return true;
+  return ($chars_dest == $chars_source);
 }
 
 assert(canScramble("abc", "abc") === True);
