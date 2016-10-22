@@ -1,4 +1,6 @@
 .DS_Store
+.pyc
+venv
 .idea
 /out
 /core
