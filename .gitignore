@@ -7,3 +7,5 @@ venv
 node_modules
 *.o
 *.class
+launch.json
+.vscode
