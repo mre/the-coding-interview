@@ -14,9 +14,9 @@ t1 = Thread.new do
 end
 t2 = Thread.new do
    loop do
-      puts "Thread 2: Aquiring mutex 1"
+      puts "Thread 2: Aquiring mutex 2"
       mutex2.synchronize do
-        puts "Thread 2: Aquiring mutex 2"
+        puts "Thread 2: Aquiring mutex 1"
         mutex1.synchronize do
         end
       end
