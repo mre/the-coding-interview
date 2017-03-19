@@ -1,9 +1,6 @@
-# The Coding Interview
+![Logo](/assets/workplace.png)
 
-My solutions to some coding problems. Good times.
-
-![XKCD 1185](https://raw.githubusercontent.com/mre/the-coding-interview/master/xkcd1185.jpg)
-
+## Credits
 
 Currently, this is a collection of the following resources:
 
@@ -14,3 +11,5 @@ Currently, this is a collection of the following resources:
   * [ofirpicazo/interview-questions](https://github.com/ofirpicazo/interview-questions/tree/master/python)
   * [Google Code Jam Problems](https://code.google.com/codejam/)
   * [Project Euler](https://projecteuler.net/)
+
+The awesome title image was [Designed by Freepik](http://www.freepik.com).
