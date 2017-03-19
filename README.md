@@ -1,5 +1,20 @@
 ![Logo](/assets/workplace.png)
 
+## Oh hi there!
+
+Didn't see you come in the door.  
+Seems like a lot of people are interested  
+in getting better at programming.  
+Thats' awesome!  
+
+I honestly did not expect the big amount  
+of interest in the project. I should clean up  
+a bit more... Anyway, the main purpose  
+is doing some fun programming workouts  
+from time to time to stay in shape.  
+
+So come on in and look around!
+
 ## Credits
 
 Currently, this is a collection of the following resources:
