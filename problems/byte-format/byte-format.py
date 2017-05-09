@@ -1,10 +1,10 @@
 def byte_format(n, roundto=2):
     """
-    Runtime: O(1)
+    Runtime: O(n)
     """
-    units = ["B", "KB", "MB", "GB", "TB", "PB"] # ...
+    units = ["B", "KB", "MB", "GB", "TB", "PB"]  # ...
     id = 0
-    factor = 1024 # or 1000
+    factor = 1024  # or 1000
     while n > factor:
         n = float(n) / factor
         id += 1
@@ -12,6 +12,6 @@ def byte_format(n, roundto=2):
     return "{0} {1}".format(n, units[id])
 
 
-print byte_format(156833213) # "149.57 MB"
+print byte_format(156833213)  # "149.57 MB"
 print byte_format(8101)      # "7.91 KB"
 print byte_format(12331, 3)  # "12.042 KB"
