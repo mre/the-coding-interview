@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(anagram("AdnBndAndBdaBn", "dAn"))	// 4 ("Adn", "ndA", "dAn", "And")
-	fmt.Println(anagram("AbrAcadAbRa", "cAda"))		// 2
+	fmt.Println(anagram("AdnBndAndBdaBn", "dAn")) // 4 ("Adn", "ndA", "dAn", "And")
+	fmt.Println(anagram("AbrAcadAbRa", "cAda"))   // 2
 }
 
 func is_anagram(token, child string) bool {
