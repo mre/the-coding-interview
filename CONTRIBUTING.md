@@ -1,6 +1,6 @@
 # Hi!
 
-Thanks for your time and your willingness to contribute; I really appreciate it.  
+Thanks for your time and your willingness to contribute; we really appreciate it.  
 
 Here's how to contribute:
 
