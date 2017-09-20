@@ -30,6 +30,7 @@ function balanced(string $s) {
 }
 
 
-assert(balanced('()'));
+assert(balanced('()[]{}(([])){[()][]}'));
+assert(!balanced('[(])'));
 assert(balanced('()[][[{{}}]]'));
 assert(!balanced(')[}[[{{}]]'));
