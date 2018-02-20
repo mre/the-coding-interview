@@ -1,7 +1,6 @@
 using System;
-using System.Collections.Generic;
 
-namespace Testing
+namespace Atbash
 {
     class Program
     {
