@@ -36,3 +36,12 @@ exports.es5 = function flatten (array) {
     return arr.concat(Array.isArray(val) ? flatten(val) : val);
   }, []);
 };
+
+// Flatten array without concatinating arrays
+exports.es6 = function flattenEs6(arr, result = []) {
+  arr.forEach(el => {
+    if (Array.isArray(el)) flattenEs6(el, result);
+    else result.push(el);
+  });
+  return result;
+}
