@@ -12,13 +12,13 @@ There is a rabbit (or other hopping animal you can draw) at the bottom of a set 
 one step at a time to reach the top, or he can hop up two steps at a time. How many different combinations of hops 
 are there for n steps. Write an algorithm to calculate the number of hop combinations for n steps. 
 
-Example - 4 steps
+Example - 4 steps  
 
-1-1-1-1 = 4
-2-1-1   = 4
-1-2-1   = 4
-1-1-2   = 4
-2-2     = 4
+1-1-1-1 = 4  
+2-1-1   = 4  
+1-2-1   = 4  
+1-1-2   = 4  
+2-2     = 4  
 
 So for 4 steps, there are 5 possible different combinations of 1-2 hops to reach the top.
 
@@ -27,20 +27,20 @@ The answer
 
 If you work out the number of possible hops for the first few steps you end up with:
 
-n | hops
-1 | 1
-2 | 2
-3 | 3
-4 | 5
-5 | 8
-6 | 13
+n | hops  
+1 | 1  
+2 | 2  
+3 | 3  
+4 | 5  
+5 | 8  
+6 | 13  
 
 This is the fibonacci sequence (the next number in the sequence is the sum of the two previous numbers). The sequence of 
 fibonacci numbers can be expressed like this:
 
-f(n) = f(n-1) + f(n-2)
-f(1) = 1
-f(0) = 0
+f(n) = f(n-1) + f(n-2)  
+f(1) = 1  
+f(0) = 0  
 
 In my opinion the most natural way to implement fibonacci is recursively, but it's also possible to implement it iteratively,
 as a generator and there's even a closed form expression. I've included the recursive, iterative and generator answers as part
