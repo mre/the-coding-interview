@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 def duplicate_characters(sequence):
     unique = set(sequence)
     return len(unique) != len(sequence)
@@ -51,14 +53,14 @@ def sequences(board, pos, seq = []):
 def knight(board):
     result = []
     # We can start at any position on the board
-    for x in range(len(board)-1):
-        for y in range(len(board[0])-1):
+    for x in range(len(board)):
+        for y in range(len(board[0])):
             # Generate all move sequences from that position
-            print "Starting position: ", x, y
+            print("Starting position: ", x, y)
             for sequence in sequences(board, (x,y), []):
                 result.append("".join(sequence))
     return result
 
 # Move knight on board
 board = "ABC_E _GHIJ KLMNO PQRST UV__Y".split()
-print knight(board)
+print(len(knight(board)))
