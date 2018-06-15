@@ -9,5 +9,29 @@ def non_repeating(chars):
         it = (it + 1) % 2
         if it == 0 and r != 0:
             return chars[i-1]
+          
+
+def non_repeating2(chars):
+  """
+  Runtime: O(n), Space: O(1)
+  """
+  i = 0
+  while i < len(string):
+    try:
+      if string[i] == string[i+1]:
+        i += 2
+      else:
+        return string[i]
+    except Exception:
+      return string[i]
+  return True
+
+
 
 print non_repeating("Daabbccdeffg")
+print(non_repeating("AABBC"))
+print(non_repeating("AABBCCDEEFF"))
+
+print(non_repeating2("AABBC"))
+print(non_repeating2("AABBCCDEEFF"))
+print(non_repeating2("Daabbccdeffg"))
