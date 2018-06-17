@@ -1,4 +1,4 @@
-# Hi!
+# Hi there!
 
 Thanks for your time and your willingness to contribute; we really appreciate it.  
 
