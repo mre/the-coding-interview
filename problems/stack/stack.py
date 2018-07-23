@@ -6,14 +6,14 @@ class Stack():
         self.stack = []
 
     def isEmpty(self):
-		return True if len(self.stack) == 0 else False
+		    return True if len(self.stack) == 0 else False
 
     def push(self, i):
         self.stack.append(i)
 
     def pop(self):
-    	if(self.isEmpty()):
-			return 'Underflow'
+        if(self.isEmpty()):
+			      return 'Underflow'
         return self.stack.pop()
 
 s = Stack()
