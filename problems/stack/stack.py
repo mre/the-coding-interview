@@ -5,19 +5,19 @@ class Stack():
     def __init__(self):
         self.stack = []
 
-    def isEmpty(self):
-		return True if len(self.stack) == 0 else False
+    def is_empty(self):
+        return len(self.stack) == 0
 
     def push(self, i):
         self.stack.append(i)
 
     def pop(self):
-    	if(self.isEmpty()):
-			return 'Underflow'
+        if(self.is_empty()):
+            return None
         return self.stack.pop()
 
 s = Stack()
-print s.pop() #Undeflow condition. No stack elements here. Should print 'Undeflow'
+print s.pop() #Undeflow condition. 
 s.push(42)
 s.push(23)
 s.push(5)
