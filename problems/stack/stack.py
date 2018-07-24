@@ -17,7 +17,7 @@ class Stack():
         return self.stack.pop()
 
 s = Stack()
-print s.pop() #Undeflow condition. 
+print s.pop() #Undeflow condition. No stack elements here. Should print 'Undeflow'
 s.push(42)
 s.push(23)
 s.push(5)
