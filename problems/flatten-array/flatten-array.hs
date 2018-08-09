@@ -1,7 +1,7 @@
 ```haskell
 -- This is a classic implementation using Haskell
 
-data UnflattenedArray x = El x | List [UnflattenedArray x] -- creating the NestedList datatype
+data UnflattenedArray x = El x | List [UnflattenedArray x] -- creating the nested list / UnflattenedArray datatype
 
 -- function for flattening an array
 flatten :: UnflattenedArray x -> [x]
