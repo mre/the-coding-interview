@@ -31,7 +31,7 @@ class Stack():
         return self._items.pop()
 
     def show(self):
-        """Show the content of the stack"""
+        """Show the contents of the stack"""
         res = "Stack (["
         if self.is_empty():
             print(res + "])")
