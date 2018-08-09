@@ -8,8 +8,6 @@ def is_prime(n):
         return False
     elif n == 2:
         return True
-    elif n % 2 == 0:
-        return False
     for i in range(3, int(sqrt(n))+1, 2): # change range to xrange for python2
         if n % i == 0:
             return False
