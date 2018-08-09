@@ -37,7 +37,7 @@ std::string alphanum_sort(std::string alphanum_string)
     
     for (auto tc : num_sorted_string) {
         // Using the properties of ASCII chars
-        // Odd even numbers have even ASCII values and vice versa
+        // Even numbers have even ASCII values and vice versa
         if (int(tc) % 2 == 0) {
             num_str_even += tc;
         } else {
