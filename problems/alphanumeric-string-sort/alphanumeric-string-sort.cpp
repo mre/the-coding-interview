@@ -45,12 +45,12 @@ std::string alphanum_sort(std::string alphanum_string)
         }
     }
     
-    sort(num_str_even.begin(), num_str_even.end());
-    sort(num_str_odd.begin(), num_str_odd.end());
-    num_sorted_string = num_str_even + num_str_odd;
-    
     std::sort(alpha_sorted_string.begin(), alpha_sorted_string.end());
+    std::sort(num_str_even.begin(), num_str_even.end());
+    std::sort(num_str_odd.begin(), num_str_odd.end());
     
+    num_sorted_string = num_str_even + num_str_odd;
+  
     return lower_upper_order(alpha_sorted_string) + num_sorted_string;
 }        
 
