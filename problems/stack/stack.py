@@ -47,9 +47,9 @@ def main():
     stack = Stack()
 
     stack.show()          # Stack ([])
-    stack.push(42)        # At this point, stack looks like this Stack ([42])
-    stack.push(23)        # At this point, stack looks like this Stack ([42, 23])
-    stack.push(5)         # At this point, stack looks like this Stack ([42, 23, 5])
+    stack.push(42)        # At this point, stack looks like this: Stack ([42])
+    stack.push(23)        # At this point, stack looks like this: Stack ([42, 23])
+    stack.push(5)         # At this point, stack looks like this: Stack ([42, 23, 5])
     print(stack.size())   # 3
     stack.show()          # Stack ([42, 23, 5])
     print(stack.pop())    # 5
