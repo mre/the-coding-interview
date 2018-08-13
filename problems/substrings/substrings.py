@@ -9,4 +9,10 @@ def substrings(string):
       end   += 1
   return result
 
-print substrings("abc")
+print(substrings("abc"))
+
+# Another approach
+def substrings(string):
+  return [string[i:j+1] for i in range(len(string)) for j in range(i,len(string))]
+
+print(substrings("abc")) # ['a', 'ab', 'abc', 'b', 'bc', 'c']
