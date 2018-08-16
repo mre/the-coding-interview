@@ -1,15 +1,15 @@
 ![Logo](/assets/workplace.png)
 
-## Oh hi there!
+## Oh, hi there!
 
-Didn't see you come in the door.  
+Didn’t see you come in the door.  
 Seems like a lot of people are interested  
 in getting better at programming.  
-Thats' awesome!  
+That’s awesome!  
 
 I honestly did not expect the big amount  
 of interest in the project. I should clean up  
-a bit more... Anyway, the main purpose  
+a bit more… Anyway, the main purpose  
 is doing some fun programming workouts  
 from time to time to stay in shape.  
 
