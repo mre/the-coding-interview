@@ -9,11 +9,11 @@ fn array_sum(input: Vec<Either>) -> u32 {
         0
     } else {
         let mut result = 0;
-        let mut stack = vec![input];
+        let mut stack = vec![&input];
         while let Some(next) = stack.pop() {
             for item in next.iter() {
                 match item {
-                    Either::List(it) => stack.push(it.to_vec()),
+                    Either::List(it) => stack.push(it),
                     Either::Int(it) => result += it,
                 }
             }
@@ -31,7 +31,7 @@ fn main() {
             Either::List(vec![
                 Either::Int(3),
                 Either::Int(4),
-                Either::List(vec![Either::Int(5),]),
+                Either::List(vec![Either::Int(5)]),
             ]),
         ])
     );
