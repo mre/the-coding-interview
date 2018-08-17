@@ -1,3 +1,5 @@
+use Either::*;
+
 enum Either {
     List(Vec<Either>),
     Int(u32),
@@ -12,8 +14,8 @@ fn array_sum(input: Vec<Either>) -> u32 {
         while let Some(next) = stack.pop() {
             for item in next.iter() {
                 match item {
-                    Either::List(it) => stack.push(it),
-                    Either::Int(it) => result += it,
+                    List(it) => stack.push(it),
+                    Int(it) => result += it,
                 }
             }
         }
@@ -25,13 +27,9 @@ fn main() {
     assert_eq!(
         15,
         array_sum(vec![
-            Either::Int(1),
-            Either::Int(2),
-            Either::List(vec![
-                Either::Int(3),
-                Either::Int(4),
-                Either::List(vec![Either::Int(5)]),
-            ]),
+            Int(1),
+            Int(2),
+            List(vec![Int(3), Int(4), List(vec![Int(5)]),]),
         ])
     );
 }
