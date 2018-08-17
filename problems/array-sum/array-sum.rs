@@ -1,11 +1,11 @@
 use Either::*;
 
-enum Either {
-    List(Vec<Either>),
+enum Either<'a> {
+    List(&'a [Either<'a>]),
     Int(u32),
 }
 
-fn array_sum(input: Vec<Either>) -> u32 {
+fn array_sum(input: &[Either]) -> u32 {
     if input.is_empty() {
         0
     } else {
@@ -26,10 +26,6 @@ fn array_sum(input: Vec<Either>) -> u32 {
 fn main() {
     assert_eq!(
         15,
-        array_sum(vec![
-            Int(1),
-            Int(2),
-            List(vec![Int(3), Int(4), List(vec![Int(5)]),]),
-        ])
+        array_sum(&[Int(1), Int(2), List(&[Int(3), Int(4), List(&[Int(5)]),]),])
     );
 }
