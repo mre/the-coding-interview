@@ -1,4 +1,3 @@
-#[derive(Clone)]
 enum Either {
     List(Vec<Either>),
     Int(u32),
