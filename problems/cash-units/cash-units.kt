@@ -1,29 +1,28 @@
 import kotlin.test.assertEquals
 
-private val cashUnits = listOf(50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1)
+private val cashUnits = listOf(500_00, 200_00, 100_00, 50_00, 20_00, 10_00, 5_00, 2_00, 1_00, 50, 20, 10, 5, 2, 1)
 
 fun Int.cashUnits(): Map<Int, Int> =
-    cashUnits.associate { it to 0 }.toMutableMap().also { result ->
+    LinkedHashMap<Int, Int>(cashUnits.size).also { result ->
         var rest = this
         for (cashUnit in cashUnits) {
-            (rest / cashUnit).takeIf { it > 0 }?.let {
-                result[cashUnit] = it
-                rest %= cashUnit
-            }
+            val n = rest / cashUnit
+            result[cashUnit] = n
+            rest %= cashUnit
         }
     }
 
 fun main(args: Array<String>) {
     val expected = mapOf(
-        50000 to 3,
-        20000 to 2,
-        10000 to 0,
-        5000 to 1,
-        2000 to 1,
-        1000 to 0,
-        500 to 0,
-        200 to 1,
-        100 to 0,
+        500_00 to 3,
+        200_00 to 2,
+        100_00 to 0,
+        50_00 to 1,
+        20_00 to 1,
+        10_00 to 0,
+        5_00 to 0,
+        2_00 to 1,
+        1_00 to 0,
         50 to 1,
         20 to 1,
         10 to 0,
@@ -32,5 +31,5 @@ fun main(args: Array<String>) {
         1 to 1
     )
 
-    assertEquals(expected, 197278.cashUnits())
+    assertEquals(expected, 1972_78.cashUnits())
 }
