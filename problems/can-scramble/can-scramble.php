@@ -8,7 +8,7 @@ function char_sum(string $string): int {
 }
 
 function can_scramble(string $input, string $output): bool {
-    return strlen($input) == strlen($output) && char_sum($input) === char_sum($output);
+    return strlen($input) === strlen($output) && char_sum($input) === char_sum($output);
 }
 
 assert(can_scramble("abc", "abc") === true);
