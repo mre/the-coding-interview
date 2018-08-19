@@ -2,7 +2,7 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 fun String.canScramble(other: String) =
-    chars().sum() == other.chars().sum()
+    length == other.length && chars().sum() == other.chars().sum()
 
 fun main(args: Array<String>) {
     assertTrue("abc".canScramble("cba"))
