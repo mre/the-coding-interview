@@ -1,11 +1,11 @@
 import kotlin.test.assertEquals
 
-private val cashUnits = listOf(500_00, 200_00, 100_00, 50_00, 20_00, 10_00, 5_00, 2_00, 1_00, 50, 20, 10, 5, 2, 1)
+private val availableCashUnits = listOf(500_00, 200_00, 100_00, 50_00, 20_00, 10_00, 5_00, 2_00, 1_00, 50, 20, 10, 5, 2, 1)
 
 fun Int.cashUnits(): Map<Int, Int> =
-    LinkedHashMap<Int, Int>(cashUnits.size).also { result ->
+    LinkedHashMap<Int, Int>(availableCashUnits.size).also { result ->
         var rest = this
-        for (cashUnit in cashUnits) {
+        for (cashUnit in availableCashUnits) {
             val n = rest / cashUnit
             result[cashUnit] = n
             rest %= cashUnit
