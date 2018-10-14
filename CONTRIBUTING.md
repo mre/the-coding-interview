@@ -11,3 +11,16 @@ Here's how to contribute:
 5. All done. Thanks for your contribution! :heart:
 
 If you get stuck at any point, please open an issue. We'll try to help you if we can.
+
+# Finding missing solutions
+
+If you're looking for problems that don't have solutions yet in the language of your choice,
+try running the [find missing solutions](./find-missing-solutions.sh) bash script. Pass it the file extension for your language 
+of choice, and it will search the problem directories for problems that don't yet have a solution in
+that language.
+
+sample usage:
+```
+chmod u+x ./find-missing-solutions.sh
+./find-missing-solutions.sh py
+```
