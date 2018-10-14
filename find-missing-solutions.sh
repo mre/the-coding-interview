@@ -1,8 +1,12 @@
 #!/bin/bash
 #
-# to run this script:
+# Bash script for finding problems that are missing solutions in a given programming language.
+# Call the script with the file extension for the language you're using (e.g. py, cpp, c), and it
+# will give you a list of problems that still need a solution for that language.
+#
+# to run the script:
 # chmod u+x
-# ./solutions-needed.sh <extension>
+# ./solutions-needed.sh <language-specific file extension>
 
 PROBLEMS_DIR='./problems'
 EULER_DIR="./problems/euler"
@@ -20,6 +24,8 @@ check_folder () {
   for path_to_folder in $1/*
   do
     folder_name="${path_to_folder##*/}"
+
+    #TODO: codejam directory is not currently handled
 
     # recurse into the EULER_DIR
     if [ $path_to_folder == $EULER_DIR ]
