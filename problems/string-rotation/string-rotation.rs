@@ -23,9 +23,14 @@ fn is_rotation(forward: &str, reverse: &str) -> bool {
     rev_match
 }
 
+fn is_rotation2(forward: &str, reverse: &str) -> bool {
+    (forward.len() == reverse.len()) && (forward == reverse.chars().rev().collect::<String>())
+}
+
 fn main() {
     println!("{}", is_rotation("ABCD", "DCBA"));
     println!("{}", is_rotation("ABCD", "BCDA"));
-    println!("{}", is_rotation("ABCD", "ACBD"));
-    println!("{}", is_rotation("ABCD", "BCDA"));
+
+    println!("{}", is_rotation2("DACB", "BCAD"));
+    println!("{}", is_rotation2("ABCD", "BCDA"));
 }
