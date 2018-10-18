@@ -20,7 +20,7 @@ So come on in and look around!
 Interested in contributing? Find problems that don't have solutions yet in the language of your choice
 by running the [find missing solutions](./find-missing-solutions.sh) bash script.
 
-See more information in [Contributing](./CONTRIBUTING.MD)
+See more information in [Contributing](CONTRIBUTING.md)
 
 ## Credits
 
