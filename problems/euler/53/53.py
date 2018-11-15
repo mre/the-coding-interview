@@ -1,4 +1,5 @@
 """
+Euler Problem: 53
 
 There are exactly ten ways of selecting three from five, 12345:
 
@@ -17,21 +18,16 @@ are greater than one-million?
 """
 import math
 
-
 def combinations(n, r):
 	denominator = math.factorial(r) * math.factorial(n-r)
 	return math.factorial(n) / denominator
 
-
 def euler53():
-
 	count = 0
-
 	for n in range(1, 101):
 		for r in range(1, n+1):
 			if combinations(n, r) > 1000000:
 				count += 1
-
 	return count
 
 print(euler53())
