@@ -9,6 +9,11 @@ def reverse_string3(string):
     for ch in string:
         res = ch + res
     return res
+  
+def reverse_string4(string):
+  from functools import reduce
+  return reduce(lambda a,x: a+x, reversed(string))
+
 
 assert(reverse_string("hello world") == "dlrow olleh")
 
