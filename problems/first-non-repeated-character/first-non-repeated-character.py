@@ -5,10 +5,14 @@ def non_repeating(chars):
     r = 0
     it = 0
     for i, c in enumerate(chars):
-        r ^= (ord(c) + ord("a"))
+        r ^= (ord(c))
         it = (it + 1) % 2
         if it == 0 and r != 0:
             return chars[i-1]
+    if len(chars) % 2 == 0:
+        return False
+    else:
+        return chars[-1]
           
 
 def non_repeating2(string):
