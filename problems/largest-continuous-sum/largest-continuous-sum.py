@@ -5,7 +5,7 @@ def largest_continous(l):
     max_sum = 0
     start = 0
     end = 1
-    while (end < len(l)):
+    while (end <= len(l)):
         if l[start] + l[start+1] > 0:
             curr_sum = sum(l[start:end])
             max_sum = max(curr_sum, max_sum)
