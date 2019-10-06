@@ -1,18 +1,32 @@
-trait CharSum {
-    fn char_sum(self) -> u128;
+use std::collections::HashMap;
+
+trait CharMap {
+    fn char_map(self) -> HashMap<char, u32>;
 }
 
-impl<'a> CharSum for &'a str {
-    fn char_sum(self) -> u128 {
-        self.bytes().map(|it| it as u128).sum()
+impl<'a> CharMap for &'a str {
+    fn char_map(self) -> HashMap<char, u32> {
+        let mut map = HashMap::new();
+        for c in self.chars() {
+            map.entry(c).and_modify(|count| *count += 1).or_insert(1);
+        }
+        map
     }
 }
 
-fn can_scramble(input: &str, output: &str) -> bool {
-    input.len() == output.len() && input.char_sum() == output.char_sum()
+pub fn can_scramble(input: &str, output: &str) -> bool {
+    input.char_map() == output.char_map()
 }
 
-fn main() {
-    assert!(can_scramble("abc", "cab"));
-    assert!(!can_scramble("aab", "bba"));
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn it_works() {
+        assert_eq!(can_scramble("", ""), true);
+        assert_eq!(can_scramble("abc", "cba"), true);
+        assert_eq!(can_scramble("aaa", "aa"), false);
+        assert_eq!(can_scramble("aab", "bba"), false);
+        assert_eq!(can_scramble("ac", "bb"), false);
+    }
 }
