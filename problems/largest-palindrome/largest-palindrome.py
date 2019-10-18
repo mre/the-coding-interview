@@ -4,7 +4,7 @@ def largest_palindrome(string):
     """
     max_len = len(string)+1
     # Begin with the largest possible palindrome
-    for length in range(max_len,2,-1):
+    for length in range(max_len,0,-1):
         start = 0
         end = length
         while (end < max_len):
@@ -14,6 +14,8 @@ def largest_palindrome(string):
                 return curr
             start += 1
             end += 1
+    # Return an empty string if the input was empty
+    return ""
 
 
 print largest_palindrome("I am a red racecar driver")
