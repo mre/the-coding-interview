@@ -17,7 +17,7 @@ insert_final_newline = true
 [*.md]
 trim_trailing_whitespace = false
 
-[{*.java, *.kt}]
+[{*.java, *.kt, *.kts}]
 indent_size = 4
 
 [Makefile]
