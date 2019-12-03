@@ -1,3 +1,4 @@
+
 # Factorial
 
 The [factorial] of a positive integer 𝑛 is the product of all positive integers

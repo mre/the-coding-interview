@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# only use colors if we are talking to a terminal
+if [[ -t 1 ]]; then
+  error() { printf '\033[37;41m%s\033[0m\n' "$*" >&2; }
+  green() { printf '\033[0;32m%s\033[0m\n' "$*"; }
+  path() { printf '\033[0;35m%s\033[0m\n' "$*"; }
+  yellow() { printf '\033[0;33m%s\033[0m\n' "$*"; }
+else
+  error() { printf '%s\n' "$*" >&2; }
+  green() { printf '%s\n' "$*"; }
+  path() { printf '%s\n' "$*"; }
+  yellow() { printf '%s\n' "$*"; }
+fi
+
+usage() {
+  cat <<USAGE
+Find missing solutions for one or more programming languages.
+
+$(yellow Usage:)
+  find-missing-solutions [option]... <extension>...
+
+$(yellow Arguments:)
+  $(green extension)   extension of the language you are interested in (e.g. $(yellow c), $(yellow java), $(yellow rs))
+
+$(yellow Options:)
+  $(green -h, --help)  display this help and exit
+USAGE
+}
+
+if (($# == 0)); then
+  error 'Missing required extension.'
+  usage >&2
+  exit 64
+fi
+
+for arg in "$@"; do
+  if [[ "$arg" =~ ^-(h|-help)$ ]]; then
+    usage
+    exit 0
+  fi
+done
+
+shopt -s globstar nullglob
+
+for ext in "$@"; do
+  # remove leading dot, if any
+  ext=${ext##*.}
+
+  # only print the header if we are talking to a terminal
+  if [[ -t 1 ]]; then
+    echo "The following $(yellow problems) have no solutions for $(green "$ext"):"
+  fi
+
+  for dir in ./problems/**/; do
+    if [[ -f "$dir/README.md" ]]; then
+      for file in "$dir"*."$ext"; do
+        if [[ -f "$file" ]]; then
+          continue 2
+        fi
+      done
+      path "$dir"
+    fi
+  done
+done
