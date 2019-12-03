@@ -1,18 +1,22 @@
-![Logo](/assets/workplace.png)
+![Logo](assets/workplace.png)
 
 ## Oh, hi there!
 
-Didn’t see you come in the door.  Seems like a lot of people are interested  in getting better at programming.  That’s awesome!  
+Didn’t see you come in the door. Seems like a lot of people are interested in
+getting better at programming. That’s awesome!  
 
-I honestly did not expect the big amount of interest in the project. I should clean up a bit… If you'd like to help me with that, please send me a mail.  Anyway, the main purpose is doing some fun programming workouts from time to time to stay in shape.  
-So come on in and look around!
+I honestly did not expect the big amount of interest in the project. I should
+clean up a bit… If you’d like to help me with that, please send me a mail.
+Anyway, the main purpose is doing some fun programming workouts from time to
+time to stay in shape. So come on in and look around!
 
 ## Contributing
 
-Interested in contributing? Find problems that don't have solutions yet in the language of your choice
-by running the [find missing solutions](./find-missing-solutions.sh) bash script.
+Interested in contributing? Find problems that don’t have solutions yet in the
+language of your choice by running the
+[find-missing-solutions](find-missing-solutions) script.
 
-See more information in [Contributing](CONTRIBUTING.md)
+For more information see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Credits
 
@@ -30,7 +34,7 @@ The awesome title image was [Designed by Freepik](http://www.freepik.com).
 
 ## Statistics
 
-<pre>
+```
 ───────────────────────────────────────────────────────────────────────────────
 Language                 Files     Lines   Blanks  Comments     Code Complexity
 ───────────────────────────────────────────────────────────────────────────────
@@ -68,4 +72,4 @@ Estimated Cost to Develop $3,838,423
 Estimated Schedule Effort 25.578134 months
 Estimated People Required 17.776188
 ───────────────────────────────────────────────────────────────────────────────
-</pre>
+```
