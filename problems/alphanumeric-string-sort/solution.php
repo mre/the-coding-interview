@@ -9,7 +9,7 @@ foreach ($chars as $c) {
         $lower .= $c;
     } elseif ('A' <= $c && $c <= 'Z') {
         $upper .= $c;
-    } elseif (strpos("02468", $c) !== false) {
+    } elseif ($c % 2 === 0) {
         $even .= $c;
     } else {
         $odd .= $c;
