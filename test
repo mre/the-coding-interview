@@ -1,0 +1,186 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+error() { printf '\033[37;41m%s\033[0m\n' "$*" >&2; }
+green() { printf '\033[0;32m%s\033[0m\n' "$*"; }
+path() { printf '\033[0;35m%s\033[0m\n' "$*"; }
+red() { printf '\033[0;31m%s\033[0m\n' "$*"; }
+yellow() { printf '\033[0;33m%s\033[0m\n' "$*"; }
+
+usage() {
+    cat <<USAGE
+Run a test for a specific implementation.
+
+$(yellow Usage:)
+  test [option]... <solution>...
+
+$(yellow Arguments:)
+  $(green solution)    path(s) to the solution(s) that should be tested
+
+$(yellow Options:)
+  $(green -h, --help)  display this help and exit
+
+$(yellow Examples:)
+  The following compiles and executes the Rust solution for the problem in the
+  given path for all inputs in the corresponding data directory:
+
+      $(green './test problems/problem/solution.rs')
+
+  The following compiles and executes all solutions for the given problem:
+
+      $(green './test problems/problem/solution.*')
+
+  However, you can also run tests for different problems at once:
+
+      $(green './test problems/p1/solution.* problems/p2/solution.*')
+USAGE
+}
+
+if (($# == 0)); then
+    error 'Missing required path argument.'
+    usage >&2
+    exit 64
+fi
+
+for arg in "$@"; do
+    if [[ "$arg" =~ ^-(h|-help)$ ]]; then
+        usage
+        exit 0
+    fi
+done
+
+require-command() {
+    for cmd in "$@"; do
+        if ! command -v "$cmd" &>/dev/null; then
+            error "Could not find $cmd in your PATH, make sure it is available."
+            exit 69
+        fi
+    done
+}
+
+failure() {
+    echo "$(red '✘') $*"
+    fail=true
+}
+
+success() {
+    echo "$(green '✓') $*"
+}
+
+fail=false
+for solution in "$@"; do
+    ext=${solution##*.}
+
+    # Sanity check: this might happen if the user used a glob on an unclean
+    # directory that contains data from a previous run, we just ignore it…
+    case "$ext" in
+    exe | log)
+        continue 2
+        ;;
+    esac
+
+    if [[ ! -f "$solution" ]]; then
+        error "Path does not exist: $solution"
+        usage >&2
+        exit 65
+    fi
+
+    dir=$(dirname "$solution")
+
+    # Here we handle all programming languages that require a compilation step
+    # before we can execute the program.
+    case "$ext" in
+    c)
+        require-command gcc
+        gcc -pedantic -std=c18 -Wall -Wextra -Werror -o "$solution.exe" "$solution"
+        cmd=("$solution.exe")
+        ;;
+
+    cpp)
+        require-command g++
+        g++ -std=c++17 -Wall -Wextra -Werror -o "$solution.exe" "$solution"
+        cmd=("$solution.exe")
+        ;;
+
+    cs)
+        require-command mcs mono
+        mcs -langversion:Experimental -optimize+ -out:"$solution.exe" "$solution"
+        cmd=(mono "$solution.exe")
+        ;;
+
+    go)
+        require-command go
+        cmd=(go run "$solution")
+        ;;
+
+    java)
+        require-command java
+        version=$(java --version | head -n1 | cut -d' ' -f2)
+        if ((${version%%.*} < 11)); then
+            error "At least Java 11 is required, found $version"
+            exit 64
+        fi
+        cmd=(java "$solution")
+        ;;
+
+    rs)
+        require-command rustc
+        rustc -o "$solution.exe" "$solution"
+        cmd=("./$solution.exe")
+        ;;
+
+    *)
+        cmd=("./$solution")
+        if [[ ! -x "${cmd[0]}" ]]; then
+            error "${cmd[0]} is not executable, did you forget the executable bit?"
+            exit 69
+        fi
+        ;;
+    esac
+
+    echo "Running tests for $(path "$solution")"
+
+    data=$dir/data
+    has_data=false
+    shopt -s nullglob
+    for in in "$data"/*.in; do
+        has_data=true
+        name=$(basename "$in" .in)
+        out=$solution.$name.out.log
+        err=$solution.$name.err.log
+
+        if ! "${cmd[@]}" "$(cat "$in")" >"$out" 2>"$err"; then
+            failure "$name (non-zero exit status)"
+        fi
+
+        if [[ "$(cat "$data/$name.out")" == "$(cat "$out")" ]]; then
+            success "$name"
+            rm -f "$out" "$err"
+        else
+            failure "$name"
+        fi
+    done
+
+    if [[ $has_data == false ]]; then
+        error "Not test data in: $data"
+        continue
+    fi
+
+    if [[ $fail == true ]]; then
+        nr=$(yellow \$nr)
+        cat <<HELP
+--------------------------------------------------------------------------------
+One or more test cases failed.
+
+$(green input)     $(path "$data/")$nr$(path .in)
+$(green stdout)    $(path "$solution.")$nr$(path .out.log)
+$(green stderr)    $(path "$solution.")$nr$(path .err.log)
+$(green expected)  $(path "$data/")$nr$(path .out)
+
+Replace $nr with the number of the test case that failed.
+HELP
+
+        # We abort at this point and do not execute any more tests.
+        exit 1
+    fi
+done
