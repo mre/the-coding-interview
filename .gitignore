@@ -12,6 +12,7 @@ Thumbs.db
 .idea/
 lib/
 out/
+*.iml
 
 # https://code.visualstudio.com/
 .vscode
