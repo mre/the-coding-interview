@@ -1,25 +1,17 @@
-# EditorConfig helps developers define and maintain consistent
-# coding styles between different editors and IDEs
-# editorconfig.org
-
+# https://editorconfig.org/
 root = true
 
-
 [*]
-
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
+charset                  = utf-8
+end_of_line              = lf
+indent_size              = 4
+indent_style             = space
+insert_final_newline     = true
+tab_width                = 4
 trim_trailing_whitespace = true
-insert_final_newline = true
 
-[*.md]
-trim_trailing_whitespace = false
+[{*.json, *.md, *.yaml, *.yml}]
+indent_size = 2
 
-[{*.java, *.kt, *.kts}]
-indent_size = 4
-
-[Makefile]
+[{Makefile, *.mk}]
 indent_style = tab
-indent_size = 4

@@ -1,11 +1,26 @@
+# https://github.com/github/gitignore/blob/master/Global/Linux.gitignore
+*~
+
+# https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 .DS_Store
-.pyc
-venv
-.idea
-/out
-/core
-node_modules
-*.o
-*.class
-launch.json
+
+# https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+[Dd]esktop.ini
+Thumbs.db
+
+# https://www.jetbrains.com/idea/
+.idea/
+lib/
+out/
+
+# https://code.visualstudio.com/
 .vscode
+
+# Python
+venv/
+
+# Created by ./test for languages that require compilation (e.g. C, C++, Rust).
+*.exe
+
+# Created by ./test during test runs to collect the program output.
+*.log
