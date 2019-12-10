@@ -14,6 +14,6 @@ endif
 problems/%:
 	./test $@
 
-clean: ## Delete all log files produces by the test script for failing tests.
+clean: ## Delete all log files produced by the test script for failing tests.
 	shopt -s globstar
 	rm -f problems/**/*.exe problems/**/*.log
