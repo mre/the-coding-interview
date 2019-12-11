@@ -1,4 +1,4 @@
-# Advent of Code 2019, Day 1, Part 1
+# Advent of Code 2019, Day 1, Part 2
 
 Source https://adventofcode.com/2019/day/1#part2
 
