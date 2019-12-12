@@ -36,6 +36,11 @@ func balanced_brackets(s string) bool{
 			}
 		}
 	}
+    // if remaining queue is not empty. ex: [[(())
+    if len(queue) != 0 {
+        return false
+    }
+    
 	return true
 }
 
