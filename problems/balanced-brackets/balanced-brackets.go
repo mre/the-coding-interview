@@ -36,6 +36,7 @@ func balanced_brackets(s string) bool{
 			}
 		}
 	}
-	return true
+    
+    return len(queue) == 0
 }
 
