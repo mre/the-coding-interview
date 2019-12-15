@@ -17,3 +17,7 @@ problems/%:
 clean: ## Delete all log files produced by the test script for failing tests.
 	shopt -s globstar
 	rm -f problems/**/*.exe problems/**/*.log
+
+executables:
+	shopt -s extglob globstar
+	chmod +x problems/**/*.+(bash|dart|jl|js|kt|kts|php|py|rb|sh|ts|zsh)

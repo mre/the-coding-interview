@@ -74,7 +74,7 @@ for solution in "$@"; do
     # Sanity check: this might happen if the user used a glob on an unclean
     # directory that contains data from a previous run, we just ignore it…
     case "$ext" in
-    exe | log)
+    exe | iml | log)
         continue 2
         ;;
     esac
@@ -127,6 +127,11 @@ for solution in "$@"; do
         require-command rustc
         rustc -o "$solution.exe" "$solution"
         cmd=("./$solution.exe")
+        ;;
+
+    scala)
+        require-command scala
+        cmd=(scala "$solution")
         ;;
 
     *)
