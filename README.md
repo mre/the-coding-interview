@@ -36,39 +36,40 @@ The awesome title image was [Designed by Freepik](http://www.freepik.com).
 
 <!--
 brew install scc
-scc -i bash,c,coffee,cpp,cs,fsx,go,h,hpp,hs,java,jl,js,kt,kts,lol,php,py,pyc,rb,rs,swift,ts problems/
+scc -i bash,c,coffee,cpp,cs,dart,fsx,go,h,hpp,hs,java,jl,js,kt,kts,lol,php,py,pyc,rb,rs,swift,ts problems/
 -->
 
 ```
 ───────────────────────────────────────────────────────────────────────────────
 Language                 Files     Lines   Blanks  Comments     Code Complexity
 ───────────────────────────────────────────────────────────────────────────────
-Python                     156      5486      633       605     4248       1416
-JavaScript                  67      1817      255       234     1328        277
-PHP                         25       649       81         6      562         51
-CoffeeScript                24       600       75        90      435         73
-Rust                        20       746       83        22      641         53
-Kotlin                      18       434       66        26      342         67
-Java                        16       584       72        42      470        104
-C#                          14       560       70        31      459         55
-Go                          11       377       63         2      312         50
-Ruby                        11       208       20        85      103         16
-C                            9       217       40        16      161         38
-C++                          9       292       32        11      249         52
-BASH                         6       202       19         6      177         28
+Python                     156      5396      631       585     4180       1400
+JavaScript                  69      1875      266       228     1381        286
+PHP                         27       720       96        10      614         61
+CoffeeScript                23       584       74        84      426         72
+Rust                        23       919       94        22      803         74
+Java                        20       735       92        39      604        128
+Kotlin                      20       467       71        26      370         77
+C#                          14       527       61        31      435         59
+Ruby                        12       215       21        86      108         16
+C++                         11       407       42        22      343         60
+Go                          11       382       60         4      318         55
+BASH                        10       305       33        15      257         48
+C                           10       224       41        16      167         41
 Haskell                      6        55        9         3       43          4
 F#                           5        81       11        19       51          5
 C++ Header                   4       268       49         9      210         15
-TypeScript                   4        83       19         0       64          9
+TypeScript                   3        58       15         0       43          6
+Dart                         2        53        9         0       44          8
+Julia                        2        29        5         2       22          6
 C Header                     1        18        6         2       10          0
-Julia                        1        26        4         1       21          4
 LOLCODE                      1        30        6         0       24          2
 Swift                        1        86        3         7       76          3
 ───────────────────────────────────────────────────────────────────────────────
-Total                      409     12819     1616      1217     9986       2322
+Total                      431     13434     1695      1210    10529       2426
 ───────────────────────────────────────────────────────────────────────────────
-Estimated Cost to Develop $302,661
-Estimated Schedule Effort 9.742137 months
-Estimated People Required 3.680077
+Estimated Cost to Develop $319,964
+Estimated Schedule Effort 9.950146 months
+Estimated People Required 3.809141
 ───────────────────────────────────────────────────────────────────────────────
 ```
