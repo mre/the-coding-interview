@@ -36,7 +36,7 @@ The awesome title image was [Designed by Freepik](http://www.freepik.com).
 
 <!--
 brew install scc
-scc -i bash,c,coffee,cpp,cs,fsx,go,h,hpp,hs,java,jl,js,kt,kts,lol,php,py,pyc,rb,rs,swift,ts problems/
+scc -i bash,c,coffee,cpp,cs,dart,fsx,go,h,hpp,hs,java,jl,js,kt,kts,lol,php,py,pyc,rb,rs,swift,ts problems/
 -->
 
 ```
@@ -60,15 +60,16 @@ Haskell                      6        55        9         3       43          4
 F#                           5        81       11        19       51          5
 C++ Header                   4       268       49         9      210         15
 TypeScript                   3        58       15         0       43          6
+Dart                         2        53        9         0       44          8
 Julia                        2        29        5         2       22          6
 C Header                     1        18        6         2       10          0
 LOLCODE                      1        30        6         0       24          2
 Swift                        1        86        3         7       76          3
 ───────────────────────────────────────────────────────────────────────────────
-Total                      429     13381     1686      1210    10485       2418
+Total                      431     13434     1695      1210    10529       2426
 ───────────────────────────────────────────────────────────────────────────────
-Estimated Cost to Develop $318,560
-Estimated Schedule Effort 9.933535 months
-Estimated People Required 3.798770
+Estimated Cost to Develop $319,964
+Estimated Schedule Effort 9.950146 months
+Estimated People Required 3.809141
 ───────────────────────────────────────────────────────────────────────────────
 ```
