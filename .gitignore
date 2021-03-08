@@ -10,6 +10,7 @@ Thumbs.db
 
 # https://www.jetbrains.com/idea/
 .idea/
+*.iml
 lib/
 out/
 
