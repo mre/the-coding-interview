@@ -1,14 +1,24 @@
 ![Logo](assets/workplace.png)
 
-## Oh, hi there!
+## ⚠️ Maintenance status
 
-Didn’t see you come in the door. Seems like a lot of people are interested in
-getting better at programming. That’s awesome!
+**Nowadays I don't have much time to maintain this project anymore.**
 
-I honestly did not expect the big amount of interest in the project. I should
-clean up a bit… If you’d like to help me with that, please send me a mail.
-Anyway, the main purpose is doing some fun programming workouts from time to
-time to stay in shape. So come on in and look around!
+I started the project when preparing for coding interviews when graduating.
+If this is your goal, too, then **there might be better resources in 2021** to prepare
+for that. Here are some books that I recommend to friends who are looking to
+build a solid foundation.
+
+<a target="_blank"  href="https://amzn.to/3nl7GNt"><img border="0" src="assets/cracking_the_coding_interview.jpg" ></a>
+<a target="_blank"  href="https://amzn.to/3ewOVCO"><img border="0" src="assets/system_design_interview.jpg" ></a>
+
+[Cracking the Coding Interview](https://amzn.to/3nl7GNt) by Gayle Laakmann McDowell is a classic, which covers most of the questions that get typically asked in FAANG interviews like array and string manipulations, sorting, and searching.
+
+[System Design Interview](https://amzn.to/3ewOVCO) by Alex Xu is more focused on typical software architecture questions, e.g. back-of-the-envelope estimations as well as making services performant and fault tolerant.
+
+_Note: These are Amazon affiliate links and I get a small commission if you end up buying a book. This helps me work on OSS in my free time._
+
+These books in combination should give a good overview of what to expect in a typical interview situation. The repository can still serve as a nice companion while working through the chapters from the books.
 
 ## Contributing
 
@@ -20,15 +30,15 @@ For more information see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Credits
 
-Currently, this is a collection of the following resources:
+This started as a collection of the following resources:
 
-  * [blakeembrey/code-problems](https://github.com/blakeembrey/code-problems)
-  * [Simeon Willbanks Repo](https://github.com/simeonwillbanks/google-interview-questions/tree/master/questions)
-  * [Arden Dertat's posts](http://www.ardendertat.com/2012/01/09/programming-interview-questions/)
-  * [jonnii/interview-questions](https://github.com/jonnii/interview-questions)
-  * [ofirpicazo/interview-questions](https://github.com/ofirpicazo/interview-questions/tree/master/python)
-  * [Google Code Jam Problems](https://code.google.com/codejam/)
-  * [Project Euler](https://projecteuler.net/)
+-   [blakeembrey/code-problems](https://github.com/blakeembrey/code-problems)
+-   [Simeon Willbanks Repo](https://github.com/simeonwillbanks/google-interview-questions/tree/master/questions)
+-   [Arden Dertat's posts](http://www.ardendertat.com/2012/01/09/programming-interview-questions/)
+-   [jonnii/interview-questions](https://github.com/jonnii/interview-questions)
+-   [ofirpicazo/interview-questions](https://github.com/ofirpicazo/interview-questions/tree/master/python)
+-   [Google Code Jam Problems](https://code.google.com/codejam/)
+-   [Project Euler](https://projecteuler.net/)
 
 The awesome title image was [Designed by Freepik](http://www.freepik.com).
 
