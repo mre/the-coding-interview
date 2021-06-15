@@ -17,12 +17,7 @@ public class Fibonacci {
 			while (number > fibonacciaSequence.size()) {
 				int nextNumberInSequence = fibonacciaSequence.get(fibonacciaSequence.size()-1) + fibonacciaSequence.get(fibonacciaSequence.size()-2);
 				fibonacciaSequence.add(nextNumberInSequence);
-			}
-			
-		} else {
-			return fibonacciaSequence.get(number-1);
-		}
-		
+			}		
 		return fibonacciaSequence.get(number-1);
 
 	}
