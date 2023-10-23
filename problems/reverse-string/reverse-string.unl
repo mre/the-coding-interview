@@ -8,6 +8,7 @@ i
 #########
 
 # String Reversing in Unlambda
+# Reads from stdin, prints the reversed string to stdout
 # Run the program here:
 # https://tio.run/##K83LScxNSkn8/z8BCIozM7mApEJCdkJKAhcQJ0N5xUAMhJlALghlQ0ig@myoBFeCA1hrQnYKmKyBKgDyFeDCQNMz///3SM3JyVcIzy/KSVEEAA
 # Or here (good for debugging): https://inazz.jp/unlambda/
