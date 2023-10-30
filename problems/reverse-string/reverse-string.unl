@@ -1,0 +1,22 @@
+````sii
+``s `k`d`
+`d`c``s `k`s`k`k`ki``s``s`ks``s`k`sik`k`k`ki
+`@i
+``s`kd``s`k|``s`k`s`kd ``s`kd``sii
+i
+
+#########
+
+# String Reversing in Unlambda
+# Reads from stdin, prints the reversed string to stdout
+# Run the program here:
+# https://tio.run/##K83LScxNSkn8/z8BCIozM7mApEJCdkJKAhcQJ0N5xUAMhJlALghlQ0ig@myoBFeCA1hrQnYKmKyBKgDyFeDCQNMz///3SM3JyVcIzy/KSVEEAA
+# Or here (good for debugging): https://inazz.jp/unlambda/
+
+# Explanation:
+# Lines 2-5 are the main program
+# Lines 2-4 try to read one character
+# Line 3 is a function that returns i when applied to i and `ki when applied to v
+# It is used to check whether the read succeeded (i.e. whether `@i returned i or v)
+# If the read worked, line 5 recurses and then prints the character
+# Lines 1 and 6 call the main program with itself (for the recursion) and a dummy argument (i here, but can be anything) to start it
